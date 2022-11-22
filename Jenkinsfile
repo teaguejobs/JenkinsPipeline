@@ -16,7 +16,7 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('error') {
           steps {
             writeFile(file: 'logtestfile.txt', text: 'this is an automation ')
           }
@@ -26,8 +26,19 @@ pipeline {
     }
 
     stage('Deploy') {
-      steps {
-        echo 'Deploying The app in a Server'
+      parallel {
+        stage('Deploy') {
+          steps {
+            echo 'Deploying The app in a Server'
+          }
+        }
+
+        stage('') {
+          steps {
+            archiveArtifacts 'testlogfile.txt'
+          }
+        }
+
       }
     }
 
