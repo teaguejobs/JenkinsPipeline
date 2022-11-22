@@ -33,9 +33,9 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('error') {
           steps {
-            archiveArtifacts 'testlogfile.txt'
+            archiveArtifacts 'logtestfile.txt'
           }
         }
 
