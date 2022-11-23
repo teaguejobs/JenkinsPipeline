@@ -12,7 +12,7 @@ pipeline {
         stage('Test') {
           steps {
             echo 'Testing The Application'
-            echo 'Get theDriverPath$"chromedriverpath"'
+            echo 'Get the DriverPath$"chromedriverpath"'
           }
         }
 
@@ -27,6 +27,9 @@ pipeline {
 
     stage('Deploy') {
       parallel {
+         when {
+          Branch "master"
+         }
         stage('Deploy') {
           steps {
             echo 'Deploying The app in a Server'
