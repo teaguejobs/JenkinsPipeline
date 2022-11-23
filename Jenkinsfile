@@ -27,9 +27,6 @@ pipeline {
 
     stage('Deploy') {
       parallel {
-         when {
-          Branch "master"
-         }
         stage('Deploy') {
           steps {
             echo 'Deploying The app in a Server'
